@@ -2,9 +2,9 @@
 
 ## Descrição do Projeto
 
-Este repositório contém os códigos e arquivos desenvolvidos durante a Formação AWS Data Lake, curso de engenharia de dados da plataforma Alura com foco em serviços AWS, Apache Spark e Python.
+Este repositório em um projeto de engenharia de dados com foco em serviços AWS, Apache Spark e Python desenvolvido durante treinamento na Alura.
 
-O objetivo principal do projeto foi construir um data lake completo na AWS. O fluxo abrangeu desde a ingestão de dados até a construção de um dashboard para análise das informações, seguindo a arquitetura medalhão para garantir a qualidade e a governança dos dados.
+O objetivo principal foi construir um data lake completo na AWS, abrangendo desde a ingestão de dados até a construção de um dashboard para análise das informações, seguindo a arquitetura medalhão para garantir a qualidade e a governança dos dados.
 
 <div align="center"><img src='https://github.com/jorgeplatero/alura_aws_data_lake/blob/dfb588fdd92f9e76bb7d914ac2d631b7ca5cca01/img/arquitetura.png' width=500></div>
 
