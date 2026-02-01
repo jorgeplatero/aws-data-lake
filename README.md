@@ -53,11 +53,11 @@ python extract_data.py
 
 O projeto utiliza o **Boto3** para integrar scripts Python locais com o **Amazon S3**. O **AWS Glue** atua na catalogação e transformação inicial, enquanto o **AWS EMR** processa grandes volumes de dados de forma distribuída. A camada final (Gold) é consumida pelo **AWS QuickSight**, que permite a análise das solicitações de melhorias urbanas de Boston.
 
-Link para a fonte de dados: [Boston 311 Service Requests](https://data.boston.gov/dataset/311-service-requests)
+Link para a fonte de dados: https://data.boston.gov/dataset/311-service-requests
 
 Para detalhes sobre a configuração de permissões IAM e políticas de bucket, consulte o treinamento:
 
-Link para o treinamento: [Alura - Engenharia de Dados na AWS](https://www.alura.com.br/)
+Link para o treinamento: https://cursos.alura.com.br/formacao-aws-data-lake-construindo-pipelines-aws
 
 ### Deploy
 
