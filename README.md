@@ -32,7 +32,7 @@ Para executar o pipeline e provisionar a estrutura de dados:
 python extract_data.py
 ```
 
-3. Processamento Glue (Camada Silver): no console da AWS, crie e execute o Job do AWS Glue utilizando o script fornecido na pasta `glue/` para realizar a limpeza e padronização dos dados.
+3. Processamento Glue (Camada Silver): no console da AWS, crie e execute o Job do AWS Glue para realizar a limpeza e padronização dos dados.
 
 4. Processamento EMR (Camada Gold): provisione um cluster EMR e submeta o job Spark para realizar as agregações de negócio, salvando o resultado final em formato Parquet na camada Gold.
 
