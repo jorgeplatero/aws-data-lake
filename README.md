@@ -55,7 +55,7 @@ O projeto utiliza o **Boto3** para integrar scripts Python locais com o **Amazon
 
 Link para a fonte de dados: https://data.boston.gov/dataset/311-service-requests
 
-Para detalhes sobre a configuração de permissões IAM e políticas de bucket, consulte o treinamento:
+Para detalhes sobre a configuração de permissões IAM, desenvolvimento dos fluxos e outras informações, consulte o treinamento:
 
 Link para o treinamento: https://cursos.alura.com.br/formacao-aws-data-lake-construindo-pipelines-aws
 
