@@ -1,32 +1,64 @@
-# AWS Data Lake
+# AWS Data Lake - Projeto Boston 311
 
-## Descrição do Projeto
+Este repositório consiste no pipeline de engenharia de dados desenvolvido para a criação de um Data Lake na AWS, realizado durante o treinamento de engenharia de dados na plataforma Alura. O projeto foca na implementação de uma arquitetura medalhão (Bronze, Silver e Gold) para processar dados de solicitações de serviços urbanos da cidade de Boston, transformando dados brutos em insights estratégicos.
 
-Este repositório em um projeto de engenharia de dados com foco em serviços AWS, Apache Spark e Python desenvolvido durante treinamento na Alura.
+### Arquitetura
 
-O objetivo principal foi construir um data lake completo na AWS, abrangendo desde a ingestão de dados até a construção de um dashboard para análise das informações, seguindo a arquitetura medalhão para garantir a qualidade e a governança dos dados.
+O diagrama abaixo ilustra a arquitetura do projeto:
 
-<div align="center"><img src='https://github.com/jorgeplatero/alura_aws_data_lake/blob/dfb588fdd92f9e76bb7d914ac2d631b7ca5cca01/img/arquitetura.png' width=500></div>
+<br><p align='center'><img src='https://github.com/jorgeplatero/alura_aws_data_lake/blob/dfb588fdd92f9e76bb7d914ac2d631b7ca5cca01/img/arquitetura.png' alt='Arquitetura AWS Data Lake' width=800></p>
 
-- **Bronze:** os dados são coletados via script python e transferidos sem transformações para a camada bronze do bucket S3
-- **Silver:** os dados são validados, limpos e padronizados via AWS Glue
-- **Gold:** os dados são refinados, agregados e preparados para consumo de negócio na camada gold, fonte do dashboard AWS Quicksight
+### Pré-requisitos
 
-<div align="center"><img src='https://github.com/jorgeplatero/alura_aws_data_lake/blob/dfb588fdd92f9e76bb7d914ac2d631b7ca5cca01/img/dashboard.png' width=700></div>
+Certifique-se de possuir uma conta ativa na AWS (Amazon Web Services), o AWS CLI configurado localmente e o Python 3.11+ instalado para execução dos scripts de ingestão.
 
-## Fonte de Dados
+### Instalação
 
-Os dados utilizados no projeto são da base de dados do site Data Boston (https://data.boston.gov/). Trata-se de uma coleção de solicitações de melhorias urbanas feitas pelos moradores da cidade de Boston, EUA. Esse conjunto de dados registra uma variedade de problemas reportados pela população, funcionando como um registro histórico das preocupações e necessidades da comunidade em relação à infraestrutura e aos serviços urbanos.
+Clone o repositório:
 
-Clique <a style="text-decoration:none;" href="https://data.boston.gov/dataset/311-service-requests" target="_blank">aqui</a> para acessar os arquivos utilizados.
+```bash
+git clone https://github.com/jorgeplatero/alura_aws_data_lake.git
+```
 
-## Tecnologias Utilizadas
+### Como Rodar a Aplicação
 
-O projeto utiliza a seguinte combinação de ferramentas e serviços para criar uma arquitetura de dados robusta e eficiente:
+Para executar o pipeline e provisionar a estrutura de dados:
 
-- **AWS S3:** serviço utilizado para armazenar os arquivos parquet do projeto
-- **AWS Glue:** serviço utilizado para criar e gerenciar jobs de ETL para a camada silver
-- **AWS EMR:** serviço utilizado para o processamento distribuído de jobs de ETL para a camada gold
-- **AWS Quicksight:** serviço utilizado utilizado para a construção do dashboard
-- **Apache Spark:** framework utilizado para o processamento distribuído dos dados no serviço AWS EMR
-- **Python:** a principal linguagem utilizada nos scripts, incluindo bibliotecas de web scraping como requests e o SDK boto3 para integração com a AWS
+1. Configuração de Credenciais: configure suas chaves de acesso AWS para permitir que o SDK Boto3 interaja com sua conta.
+
+2. Ingestão (Camada Bronze): execute o script Python para realizar o web scraping dos dados do Boston Data Portal e enviá-los ao bucket S3:
+
+```bash
+python scripts/ingestao_bronze.py
+```
+
+3. Processamento Glue (Camada Silver): no console da AWS, crie e execute o Job do AWS Glue utilizando o script fornecido na pasta `glue/` para realizar a limpeza e padronização dos dados.
+
+4. Processamento EMR (Camada Gold): provisione um cluster EMR e submeta o job Spark para realizar as agregações de negócio, salvando o resultado final em formato Parquet na camada Gold.
+
+5. Visualização: conecte o AWS QuickSight ao bucket S3 (camada Gold) para visualizar o dashboard analítico.
+
+### Tecnologias
+
+| Componente | Tecnologia | Versão | Descrição |
+| :--- | :--- | :--- | :--- |
+| **Storage** | **AWS S3** | `-` | Armazenamento de objetos para as camadas do Data Lake |
+| **Processamento** | **Apache Spark** | `3.x` | Framework de processamento distribuído |
+| **ETL & Crawler** | **AWS Glue** | `4.0` | Serviço gerenciado de integração de dados |
+| **Big Data Cluster** | **AWS EMR** | `6.x` | Plataforma de cluster gerenciado para Spark |
+| **Linguagem** | **Python** | `^3.11` | Linguagem para desenvolvimento de scripts |
+| **Visualização** | **AWS QuickSight** | `-` | Ferramenta de BI para criação de dashboards |
+
+### Integrações
+
+O projeto utiliza o **Boto3** para integrar scripts Python locais com o **Amazon S3**. O **AWS Glue** atua na catalogação e transformação inicial, enquanto o **AWS EMR** processa grandes volumes de dados de forma distribuída. A camada final (Gold) é consumida pelo **AWS QuickSight**, que permite a análise das solicitações de melhorias urbanas de Boston.
+
+Link para a fonte de dados: [Boston 311 Service Requests](https://data.boston.gov/dataset/311-service-requests)
+
+Para detalhes sobre a configuração de permissões IAM e políticas de bucket, consulte o treinamento:
+
+Link para o treinamento: [Alura - Engenharia de Dados na AWS](https://www.alura.com.br/)
+
+### Deploy
+
+O deploy da infraestrutura de processamento foi realizado através do console de gerenciamento da AWS, utilizando serviços serverless (Glue) e clusters sob demanda (EMR).
