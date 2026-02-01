@@ -56,7 +56,7 @@ if __name__ == '__main__':
     )
     parser.add_argument('--database', type=str, help='Nome do banco de dados no Glue Data Catalog')
     parser.add_argument('--table_source', type=str, help='Nome da tabela origem no Glue Data Catalog')
-    parser.add_argument('--table_target', type=str, help='Nome da tabela dstino no Glue Data Catalog')
+    parser.add_argument('--table_target', type=str, help='Nome da tabela destino no Glue Data Catalog')
 
     args = parser.parse_args()
     transform_data(args.database, args.table_source, args.table_target)
