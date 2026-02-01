@@ -43,10 +43,10 @@ python extract_data.py
 | Componente | Tecnologia | Versão | Descrição |
 | :--- | :--- | :--- | :--- |
 | **Storage** | **AWS S3** | `-` | Armazenamento de objetos para as camadas do Data Lake |
-| **Processamento** | **Apache Spark** | `3.x` | Framework de processamento distribuído |
-| **ETL & Crawler** | **AWS Glue** | `4.0` | Serviço gerenciado de integração de dados |
-| **Big Data Cluster** | **AWS EMR** | `6.x` | Plataforma de cluster gerenciado para Spark |
-| **Linguagem** | **Python** | `^3.11` | Linguagem para desenvolvimento de scripts |
+| **Processamento** | **Apache Spark** | `3.5.8` | Framework de processamento distribuído |
+| **ETL & Crawler** | **AWS Glue** | `-` | Serviço gerenciado de integração de dados |
+| **Big Data Cluster** | **AWS EMR** | `-` | Plataforma de cluster gerenciado para Spark |
+| **Linguagem** | **Python** | `3.11` | Linguagem para desenvolvimento de scripts |
 | **Visualização** | **AWS QuickSight** | `-` | Ferramenta de BI para criação de dashboards |
 
 ### Integrações
