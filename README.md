@@ -61,4 +61,4 @@ Link para o treinamento: https://cursos.alura.com.br/formacao-aws-data-lake-cons
 
 ### Deploy
 
-O deploy da infraestrutura de processamento foi realizado através do console de gerenciamento da AWS, utilizando serviços serverless (Glue) e clusters sob demanda (EMR).
+O deploy da infraestrutura de processamento foi realizado através do console de gerenciamento da AWS, utilizando serviços serverless (Glue) e clusters sob demanda (EMR), além do QuickSight para crição do dashboard.
