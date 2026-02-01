@@ -17,19 +17,19 @@ Certifique-se de possuir uma conta ativa na AWS (Amazon Web Services), o AWS CLI
 Clone o repositório:
 
 ```bash
-git clone https://github.com/jorgeplatero/alura_aws_data_lake.git
+git clone https://github.com/jorgeplatero/aws-data-lake.git
 ```
 
 ### Como Rodar a Aplicação
 
 Para executar o pipeline e provisionar a estrutura de dados:
 
-1. Configuração de Credenciais: configure suas chaves de acesso AWS para permitir que o SDK Boto3 interaja com sua conta.
+1. Credenciais: configure suas chaves de acesso AWS para permitir que o SDK Boto3 interaja com sua conta.
 
 2. Ingestão (Camada Bronze): execute o script Python para realizar o web scraping dos dados do Boston Data Portal e enviá-los ao bucket S3:
 
 ```bash
-python scripts/ingestao_bronze.py
+python extract_data.py
 ```
 
 3. Processamento Glue (Camada Silver): no console da AWS, crie e execute o Job do AWS Glue utilizando o script fornecido na pasta `glue/` para realizar a limpeza e padronização dos dados.
