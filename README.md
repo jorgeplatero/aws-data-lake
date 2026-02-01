@@ -36,7 +36,7 @@ python extract_data.py
 
 4. Processamento EMR (Camada Gold): provisione um cluster EMR e submeta o job Spark para realizar as agregações de negócio, salvando o resultado final em formato Parquet na camada Gold.
 
-5. Visualização: conecte o AWS QuickSight ao bucket S3 (camada Gold) para visualizar o dashboard analítico.
+5. Visualização: conecte o AWS QuickSight ao bucket S3 (camada Gold) para criar o dashboard.
 
 ### Tecnologias
 
